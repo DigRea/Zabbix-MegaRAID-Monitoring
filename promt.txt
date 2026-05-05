@@ -1,0 +1,17 @@
+Нужно написать скрипт setup.sh на bash, который запускаетя из текущего каталога.
+Структура каталога:
+
+/
+|-- scripts/
+|   |-- raid_cv-bbu_status.sh
+|   |-- raid_disk_health.sh
+|   |-- raid_pdisk_status.sh
+|   |-- raid_vdisk_status.sh
+|-- megaraid.conf
+|-- setup.sh
+|-- zabbix-storcli
+
+Что должен сделать скрипт:
+- скопировать файл zabiix-storcli в /etc.sudoers.d/
+- скопировать директорию scripts в /usr/local/lib/ и дать права на исполнение (chmod +x)
+- скопировать файл megaraid.conf в /etc/zabbix/zabbix.conf.d/
