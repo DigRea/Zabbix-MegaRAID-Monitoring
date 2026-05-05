@@ -1,6 +1,6 @@
 /
 |-- scripts/
-|   |-- raid_bbu-cv_status.sh
+|   |-- raid_cv-bbu_status.sh
 |   |-- raid_disk_health.sh
 |   |-- raid_pdisk_status.sh
 |   |-- raid_vdisk_status.sh
