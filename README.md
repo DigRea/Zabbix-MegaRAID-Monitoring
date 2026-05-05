@@ -4,4 +4,4 @@
 
 Скачать и установить утилиту StorCLI можно с официального сайта - https://docs.broadcom.com/docs/1232743397.
 
-Файл **zabbix-storcli** необходимо скопировать в **/etc/sudoers.d/**.
+Для того, чтобы StorCLI можно было запускать от пользователя zabbix, необходимо скопировать файл **zabbix-storcli** в **/etc/sudoers.d/**.
