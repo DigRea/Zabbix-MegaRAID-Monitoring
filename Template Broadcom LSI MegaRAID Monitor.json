@@ -1,0 +1,178 @@
+{
+    "zabbix_export": {
+        "version": "7.4",
+        "template_groups": [
+            {
+                "uuid": "040d20d408f447c4a041176b8604e5e9",
+                "name": "Templates/storage controllers"
+            }
+        ],
+        "templates": [
+            {
+                "uuid": "a2975782ee5b4b3397479ed925bdf88a",
+                "template": "Template Broadcom LSI MegaRAID",
+                "name": "Template Broadcom LSI MegaRAID Monitor",
+                "groups": [
+                    {
+                        "name": "Templates/storage controllers"
+                    }
+                ],
+                "items": [
+                    {
+                        "uuid": "ee623b96a23441109edd2ed8eb5ad254",
+                        "name": "RAID: CacheVault Status",
+                        "key": "raid.cvbbu.status.text[0]",
+                        "delay": "60m",
+                        "value_type": "CHAR",
+                        "triggers": [
+                            {
+                                "uuid": "8cc6781eccd84f10ba3d2b65bb91e3b4",
+                                "expression": "last(/Template Broadcom LSI MegaRAID/raid.cvbbu.status.text[0])<>\"Optimal\" and last(/Template Broadcom LSI MegaRAID/raid.cvbbu.status.text[0])<>\"Not Present\"",
+                                "name": "RAID: CacheVault Not Optimal on {HOST.NAME}",
+                                "priority": "HIGH"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "544c84d440c64aeaa277a84ac2f02e99",
+                        "name": "RAID: CacheVault Temperature",
+                        "key": "raid.cvbbu.temperature[0]",
+                        "delay": "60m",
+                        "units": "\u00b0C"
+                    },
+                    {
+                        "uuid": "3f7d38b612664e14bd550ea644a9d92f",
+                        "name": "RAID: Avg Disk Temperature",
+                        "key": "raid.disk.avg.temperature[0]",
+                        "delay": "5m",
+                        "value_type": "FLOAT",
+                        "units": "\u00b0C"
+                    },
+                    {
+                        "uuid": "9aea29f327dd4f839c73d94484f433f1",
+                        "name": "RAID: Disk Health Details",
+                        "key": "raid.disk.health[0]",
+                        "delay": "5m",
+                        "value_type": "TEXT"
+                    },
+                    {
+                        "uuid": "299e3ecfab694e39bc5f5e10ffbcf462",
+                        "name": "RAID: Max Disk Temperature",
+                        "key": "raid.disk.max.temperature[0]",
+                        "delay": "5m",
+                        "units": "\u00b0C",
+                        "triggers": [
+                            {
+                                "uuid": "de5597859f5f49febe928c3268c1787b",
+                                "expression": "last(/Template Broadcom LSI MegaRAID/raid.disk.max.temperature[0])>55",
+                                "name": "RAID: Critical Disk Temperature on {HOST.NAME}",
+                                "priority": "HIGH"
+                            },
+                            {
+                                "uuid": "9c7ec9072bb14117a88be696ed485f67",
+                                "expression": "last(/Template Broadcom LSI MegaRAID/raid.disk.max.temperature[0])>45",
+                                "name": "RAID: High Disk Temperature on {HOST.NAME}",
+                                "priority": "WARNING"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "dfc838b15b5c4ca7a2e2dae4aec37db9",
+                        "name": "RAID: Media Errors Total",
+                        "key": "raid.disk.media.errors.sum[0]",
+                        "delay": "5m",
+                        "triggers": [
+                            {
+                                "uuid": "76c7e43149044dedb199d2238c0a1cdf",
+                                "expression": "last(/Template Broadcom LSI MegaRAID/raid.disk.media.errors.sum[0])>0",
+                                "name": "RAID: Media Errors Detected on {HOST.NAME}",
+                                "priority": "WARNING"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "654aa3762ddf4c43a2bfa8c0c273588c",
+                        "name": "RAID: Predictive Failure Count",
+                        "key": "raid.disk.predictive.count[0]",
+                        "delay": "5m",
+                        "triggers": [
+                            {
+                                "uuid": "aebdb6191e4e4afa944f644d47bfbc8b",
+                                "expression": "last(/Template Broadcom LSI MegaRAID/raid.disk.predictive.count[0])>0",
+                                "name": "RAID: Predictive Failure Detected on {HOST.NAME}",
+                                "priority": "HIGH"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "efcd775e2f5d42e7996afaa0c93d276d",
+                        "name": "RAID: SMART Alert Count",
+                        "key": "raid.disk.smart.count[0]",
+                        "delay": "5m",
+                        "triggers": [
+                            {
+                                "uuid": "71f1d01b86854b93a586b2be8c7b4f22",
+                                "expression": "last(/Template Broadcom LSI MegaRAID/raid.disk.smart.count[0])>0",
+                                "name": "RAID: SMART Alert on {HOST.NAME}",
+                                "priority": "AVERAGE"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "c823fed9e1324185a898b20b5a20f620",
+                        "name": "RAID: Failed Physical Drives Count",
+                        "key": "raid.pdisk.failed.count[0]",
+                        "triggers": [
+                            {
+                                "uuid": "a815e5c026934dd8bf8ccc045322361c",
+                                "expression": "last(/Template Broadcom LSI MegaRAID/raid.pdisk.failed.count[0])>0",
+                                "name": "RAID: Physical Drive Failed on {HOST.NAME}",
+                                "priority": "HIGH"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "a6b26a0aae164a5fb3693392a5453580",
+                        "name": "RAID: Hot Spare Drives Count",
+                        "key": "raid.pdisk.hotspare.count[0]"
+                    },
+                    {
+                        "uuid": "34fd7131897c4c288bcffa1cf899032d",
+                        "name": "RAID: Physical Drives Status",
+                        "key": "raid.pdisk.status[0]",
+                        "value_type": "TEXT"
+                    },
+                    {
+                        "uuid": "e82065a0ce3a4504b3c694f1514a261e",
+                        "name": "RAID: Physical Drives Total Count",
+                        "key": "raid.pdisk.total.count[0]"
+                    },
+                    {
+                        "uuid": "fa32df828c01419387fc7f513632c6a0",
+                        "name": "RAID: Degraded Virtual Drives Count",
+                        "key": "raid.vdisk.degraded.count[0]",
+                        "triggers": [
+                            {
+                                "uuid": "43a256ba8bc744979d5b1ed85a050352",
+                                "expression": "last(/Template Broadcom LSI MegaRAID/raid.vdisk.degraded.count[0])>0",
+                                "name": "RAID: Virtual Drive Degraded on {HOST.NAME}",
+                                "priority": "WARNING"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "44b060265b7f4b2682e226ed2763e5b2",
+                        "name": "RAID: Virtual Drives Status",
+                        "key": "raid.vdisk.status[0]",
+                        "value_type": "TEXT"
+                    },
+                    {
+                        "uuid": "9f04cb6ef2e6480dac60df46eecb0e09",
+                        "name": "RAID: Virtual Drives Total Count",
+                        "key": "raid.vdisk.total.count[0]"
+                    }
+                ]
+            }
+        ]
+    }
+}
