@@ -24,15 +24,18 @@ for disk in $DISKS; do
 
     health_data=$(echo "$DETAILS" | jq -c \
         --arg eid_slot "$disk" \
-        '.["Controllers"][0]["Response Data"]["Drive /c0/e\($eid_slot | split(":")[0])/s\($eid_slot | split(":")[1]) - Detailed Information"]["Drive /c0/e\($eid_slot | s>
+        '.["Controllers"][0]["Response Data"] | 
+        to_entries[] | 
+        select(.key | startswith("Drive")) | 
+        .value | 
         {
             "eid_slot": $eid_slot,
-            "media_errors": ($state."Media Error Count" // 0),
-            "other_errors": ($state."Other Error Count" // 0),
-            "predictive_failure_count": ($state."Predictive Failure Count" // 0),
-            "smart_alert": ($state."S.M.A.R.T alert flagged by drive" // "No"),
-            "temperature": ($state."Drive Temperature" // "0C" | gsub("C.*$"; "") | gsub(" "; "") | tonumber? // 0),
-            "shield_counter": ($state."Shield Counter" // 0)
+            "media_errors": (.["Media Error Count"] // 0),
+            "other_errors": (.["Other Error Count"] // 0),
+            "predictive_failure_count": (.["Predictive Failure Count"] // 0),
+            "smart_alert": (.["S.M.A.R.T alert flagged by drive"] // "No"),
+            "temperature": (.["Drive Temperature"] // "0C" | gsub("C.*$"; "") | gsub(" "; "") | tonumber? // 0),
+            "shield_counter": (.["Shield Counter"] // 0)
         }')
 
     if [ -n "$health_data" ]; then
