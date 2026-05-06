@@ -20,3 +20,15 @@ chmod +x setup.sh
 ```commandline
 sudo ./setup.sh
 ```
+Далее заходим на web-интерфейс сервера Zabbix и импортируем шаблон Template Broadcom LSI MegaRAID Monitor.json.
+
+Также необходимо увеличить Timeout на сервере Zabbix:
+```commandline
+sudo nano /etc/zabbix/zabbix_server.conf
+```
+Меняем значение **Timeout=4** (по умолчанию)  на значение **Timeout=30**.
+
+И перезапускаем сервер:
+```commandline
+sudo systemctl restart zabbix-server.service
+```
