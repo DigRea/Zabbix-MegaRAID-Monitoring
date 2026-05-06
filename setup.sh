@@ -120,11 +120,8 @@ else
     exit 1
 fi
 
-print_status "========================================="
+print_status "============================"
 print_status "Установка завершена успешно!"
-print_status "========================================="
-print_status "Проверьте работу агента:"
-echo "  systemctl status zabbix-agent2"
-print_status "========================================="
+print_status "============================"
 
 exit 0
