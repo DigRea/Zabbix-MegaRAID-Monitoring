@@ -55,8 +55,8 @@ else
     exit 1
 fi
 
-# 2. Копирование директории scripts в /usr/local/bin/
-TARGET_SCRIPTS_DIR="/usr/local/bin/scripts"
+# 2. Копирование директории scripts в /usr/local/bin/zabbix/
+TARGET_SCRIPTS_DIR="/usr/local/bin/zabbix/scripts"
 print_status "Копирование скриптов в ${TARGET_SCRIPTS_DIR}..."
 
 mkdir -p "${TARGET_SCRIPTS_DIR}"
