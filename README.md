@@ -6,6 +6,17 @@
 
 Клонируем репозиторий с **GitHub** (установив предварительно пакет **git**):
 ```commandline
-git clone 
+git clone https://github.com/DigRea/Zabbix-MegaRAID-Monitoring.git
 ```
-
+Заходим в директорию проекта:
+```commandline
+cd Zabbix-MegaRAID-Monitoring/
+```
+Даём права на исполнение скрипта:
+```commandline
+chmod +x setup.sh
+```
+Запускаем скрипт от суперпользователя:
+```commandline
+sudo ./setup.sh
+```
