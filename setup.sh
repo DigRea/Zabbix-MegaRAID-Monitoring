@@ -124,7 +124,6 @@ print_status "========================================="
 print_status "Установка завершена успешно!"
 print_status "========================================="
 print_status "Проверьте работу агента:"
-echo "  zabbix_agent2 -t 'hr.raids.discovery'"
 echo "  systemctl status zabbix-agent2"
 print_status "========================================="
 
