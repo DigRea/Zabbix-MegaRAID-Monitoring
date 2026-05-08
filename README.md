@@ -24,5 +24,6 @@ sudo ./setup.sh
 ```
 ### Ссылки
 
-Официальный сайт Zabbix (zabbix-agent2) - https://www.zabbix.com. 
+Официальный сайт Zabbix (zabbix-agent2) - https://www.zabbix.com.
+
 Официальный сайт Broadcom (storcli) - https://docs.broadcom.com/docs/1232743397.
