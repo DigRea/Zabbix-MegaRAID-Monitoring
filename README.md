@@ -1,6 +1,6 @@
 ## Zabbix Broadcom/LSI MegaRAID Monitoring
 
-This solution has been tested on Broadcom/LSI MegaRAID SAS-3 3108 [Invader] (rev 02) and Broadcom/LSI MegaRAID Tri-Mode SAS3508 (rev 01) controllers, running on Debian 11 Bullseye (x86_64). Zabbix server version: 7.4.9.
+This solution has been tested on Broadcom/LSI MegaRAID SAS-3 3108 [Invader] (rev 02) and Broadcom/LSI MegaRAID Tri-Mode SAS3508 (rev 01) controllers, running on Debian 11 Bullseye (x86_64).
 
 ### Requirements
 
