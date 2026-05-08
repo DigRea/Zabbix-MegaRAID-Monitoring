@@ -11,9 +11,9 @@ Requirements for the host to be monitored:
 
 Requirements for the monitoring server:
 - Zabbix server version: 7.4.9.
-- In the configuration file /etc/zabbix/zabbix_server.conf, the Timeout value must be changed to 30 (the server will need to be restarted).
+- In the configuration file **/etc/zabbix/zabbix_server.conf**, the **Timeout** value must be changed to **30** (the server will need to be restarted).
 
-###Installation
+### Installation
 
 Run the following commands on the host to be monitored:
 
